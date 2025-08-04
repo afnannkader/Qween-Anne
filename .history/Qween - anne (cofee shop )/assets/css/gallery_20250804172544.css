@@ -1,0 +1,120 @@
+@font-face {
+  font-family: "Melodrame";
+  src: url("../fonts/relationship-of-melodrame.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Tomato Medium Slanted";
+  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-MediumSlanted.otf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.main-preview {
+  width: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.preview-index {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1.25rem;
+  color: #333;
+  z-index: 10;
+}
+
+.preview-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.preview-inner img.fade-out {
+  opacity: 0;
+}
+
+.minimap-wrapper {
+  width: 50%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.minimap {
+  display: flex;
+  gap: 0.2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  max-width: 100%;
+  padding: 0.5rem;
+}
+
+.minimap img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  flex-shrink: 0;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.minimap img.active,
+.minimap img:hover {
+  border: 2px solid #333;
+}
+
+.minimap::-webkit-scrollbar {
+  height: 8px;
+}
+
+.minimap::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 4px;
+}
+
+.gallery {
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  font-family: "Melodrame";
+}
+
+.word-wrapper {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.word-wrapper span {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+}

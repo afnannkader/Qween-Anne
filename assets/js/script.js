@@ -217,7 +217,7 @@ document.getElementById("viewMoreBtn").addEventListener("click", function (e) {
 
 async function loadHero() {
   try {
-    const res = await fetch("http://localhost:1337/api/hero?populate=*");
+    const res = await fetch("https://romantic-boat-069c786bab.strapiapp.com/api/hero?populate=*");
     const data = await res.json();
     const hero = data.data; // 👈 keep it consistent with Strapi’s structure
 console.log("Hero data:", hero);
@@ -226,12 +226,12 @@ console.log("Hero data:", hero);
 
     if (leftImage) {
       document.querySelector(".hero-bg-left").style.backgroundImage =
-        `url("http://localhost:1337${leftImage}")`;
+        `url("${leftImage}")`;
     }
 
     if (rightImage) {
       document.querySelector(".hero-bg-right").style.backgroundImage =
-        `url("http://localhost:1337${rightImage}")`;
+        `url("${rightImage}")`;
     }
   } catch (error) {
     console.error("Error loading hero images:", error);
@@ -240,13 +240,13 @@ console.log("Hero data:", hero);
 
 async function loadIntro() {
   try {
-    const res = await fetch("http://localhost:1337/api/intro?populate=*");
+    const res = await fetch("https://romantic-boat-069c786bab.strapiapp.com/api/intro?populate=*");
     const data = await res.json();
     const intro = data.data.Image;
 
     // Set image dynamically
     document.getElementById("introImage").src =
-      "http://localhost:1337" + intro.url;
+      intro.url;
   } catch (error) {
     console.error("Error loading intro image:", error);
   }
@@ -254,13 +254,13 @@ async function loadIntro() {
 
 async function loadOurStory() {
   try {
-    const res = await fetch("http://localhost:1337/api/our-story?populate=*");
+    const res = await fetch("https://romantic-boat-069c786bab.strapiapp.com/api/our-story?populate=*");
     const data = await res.json();
     const intro = data.data.Image;
 
     // Set image dynamically
     document.getElementById("OurStoryImage").src =
-      "http://localhost:1337" + intro.url;
+        intro.url;
   } catch (error) {
     console.error("Error loading intro image:", error);
   }
@@ -268,7 +268,7 @@ async function loadOurStory() {
 
 async function loadGallery() {
   try {
-    const res = await fetch("http://localhost:1337/api/galleries?populate=*");
+    const res = await fetch("https://romantic-boat-069c786bab.strapiapp.com/api/galleries?populate=*");
     const data = await res.json();
     const gallery = data.data;
     const galleryTrack = document.getElementById("galleryTrack");
@@ -281,7 +281,7 @@ async function loadGallery() {
       const imgUrl = item.Image?.url; // adjust if Strapi nests deeper
       if (imgUrl) {
         const img = document.createElement("img");
-        img.src = "http://localhost:1337" + imgUrl;
+        img.src =  imgUrl;
         img.alt = "Gallery Image";
         galleryTrack.appendChild(img);
       }
@@ -326,7 +326,7 @@ async function loadGallery() {
 
 async function loadMenu() {
   try {
-    const res = await fetch("http://localhost:1337/api/menu-items?populate=*");
+    const res = await fetch("https://romantic-boat-069c786bab.strapiapp.com/api/menu-items?populate=*");
     const data = await res.json();
 
     const menuGrid = document.getElementById("menuGrid");
@@ -362,7 +362,7 @@ function createMenuItem(item) {
   const title = item.Name;
   const price = item.Price;
   const imageUrl = item.Image?.url 
-    ? "http://localhost:1337" + item.Image.url
+    ? item.Image.url
     : "placeholder.jpg";
 
   return `

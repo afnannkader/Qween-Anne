@@ -4,7 +4,7 @@ const Gallery = (() => {
   let minimap, bigImage, previewIndex;
   let hasAnimated = false;
 
-  const API_URL = "http://localhost:1337"; // 👈 change if deployed
+  const API_URL = "https://romantic-boat-069c786bab.strapiapp.com"; // 👈 change if deployed
   const ENDPOINT = "/api/gallery-previews?populate=*";
 
   const isDesktop = () => window.matchMedia("(min-width: 1025px)").matches;

@@ -11,6 +11,11 @@
   font-family: "Tomato light";
   src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-Light.otf") format("truetype");
 }
+@font-face {
+  font-family: "Tomato thin";
+  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-Thin.otf") format("truetype");
+  font-weight: normal;
+}
 /* ========== Base Reset ========== */
 * {
   box-sizing: border-box;
@@ -132,11 +137,10 @@ body {
 .back-button {
   position: absolute;
   top: 1rem;
-  left: 2rem;
   background: transparent;
   border: none;
   font-size: 1.2rem;
-  font-family: "Tomato light", sans-serif; /* your existing font */
+  font-family: "Tomato thin", sans-serif; /* your existing font */
   color: #F9FDFF;
   cursor: pointer;
   z-index: 20;
@@ -235,7 +239,6 @@ body {
   }
 
   .minimap-wrapper {
-    padding: 1rem 0;
+    padding: 9rem 0;
   }
 }
-

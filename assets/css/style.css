@@ -6,78 +6,78 @@
 
 @font-face {
   font-family: "Tomato thin";
-  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-Thin.otf") format("truetype");
-  font-weight: normal;
+  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-Thin.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Tomato thin Slanted";
-  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-ThinSlanted.otf") format("truetype");
-  font-weight: normal;
+  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-ThinSlanted.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Tomato light";
-  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-Light.otf") format("truetype");
+  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-Light.otf") format("opentype");
 }
 
 @font-face {
-  font-family: "Tomeato light Slanted";
-  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-LightSlanted.otf") format("truetype");
-  /* font-weight: normal; */
+  font-family: "Tomato light Slanted";
+  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-LightSlanted.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Tomato Medium";
-  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-Medium.otf") format("truetype");
+  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-Medium.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Tomato Medium Slanted";
-  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-MediumSlanted.otf") format("truetype");
+  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-MediumSlanted.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Tomato Regular";
-  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-Regular.otf") format("truetype");
+  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-Regular.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Tomato Bold";
-  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-Bold.otf") format("truetype");
+  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-Bold.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Tomato Bold Slanted";
-  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-BoldSlanted.otf") format("truetype");
+  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-BoldSlanted.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Tomato ExtraLight";
-  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-ExtraLight.otf") format("truetype");
+  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-ExtraLight.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Tomato SemiBold";
-  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-SemiBold.otf") format("truetype");
+  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-SemiBold.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Tomato Black";
-  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-Black.otf") format("truetype");
+  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-Black.otf") format("opentype");
 }
 
 @font-face {
-  font-family: "Tomeato ExtraBold";
-  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-ExtraBold.otf") format("truetype");
-  font-weight: normal;
+  font-family: "Tomato ExtraBold";
+  src: url("../fonts/TOMATO_GROTESK/TomatoGrotesk-ExtraBold.otf") format("opentype");
 }
+
 
 /* =========================
    Root Variables
    ========================= */
+/* =========================
+   Root Variables
+   ========================= */
 :root {
-  --font-main: "Playfair Display", serif;
+  --font-main: "Tomato light", Helvetica;
   --color-primary: #F9FDFF;
   --color-accent: #b88c4a;
   --color-bg: #2A2324;
@@ -135,7 +135,7 @@ header {
   position: absolute;
   right: 0;
   left: 0;
-  font-family: "Tomato Medium", sans-serif;
+  font-family: "Tomato light", sans-serif;
   color: var(--color-primary);
   z-index: 1100;
 }
@@ -150,7 +150,7 @@ header {
 .nav-links a {
   text-decoration: none;
   color: var(--color-primary);
-  font-family: "Tomato Light", Arial, Helvetica, sans-serif;
+  font-family: "Tomato light", Arial, Helvetica, sans-serif;
   font-size: 1rem;
   transition: color 0.3s;
 }
@@ -159,7 +159,8 @@ header {
   color: var(--color-accent);
 }
 
-/* âœ… Mobile full-screen overlay menu */
+
+/* ✅ Mobile full-screen overlay menu */
 @media (max-width: 768px) {
   :root { --reveal-ease: cubic-bezier(0.16, 1, 0.3, 1); }
 
@@ -173,14 +174,13 @@ header {
     border: 0;
     margin: 0;
     color: var(--color-primary);
-    font-size: 1.5rem;
-    /* line-height: 1; */
+    font-size: 1rem;
     cursor: pointer;
     margin-left: auto;
   }
 
-    .navbar {
-    padding: 1.8rem 0 0.5rem 0; /* remove left/right padding, keep top/bottom */
+  .navbar {
+    padding: 1rem 0 0.5rem 0; /* remove left/right padding, keep top/bottom */
   }
 
   .nav-container {
@@ -215,8 +215,8 @@ header {
 
     transition: clip-path 0.9s var(--reveal-ease),
                 -webkit-clip-path 0.9s var(--reveal-ease);
-    gap: 1rem; /* tighter spacing */
-    padding: 1rem; /* breathing room from edges */
+    gap: 0.5rem; /* tighter spacing */
+    padding: 9rem 1rem; /* breathing room from edges */
     z-index: 1000;
     pointer-events: none;
   }
@@ -235,7 +235,6 @@ header {
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* align left */
-    gap: 0.75rem; /* smaller gap */
   }
 
   .nav-links li {
@@ -247,13 +246,12 @@ header {
 
   .nav-links a {
     color: var(--color-primary);
-    font-size: 2.5rem; /* slightly smaller for stacked look */
+    font-size: 2rem; /* slightly smaller for stacked look */
     opacity: 0;
     transform: translateY(20px);
     transition: transform 0.42s cubic-bezier(.2,.8,.2,1),
                 opacity 0.42s cubic-bezier(.2,.8,.2,1);
     text-decoration: none;
-    padding: 0.5rem 0.75rem; /* smaller padding */
     display: inline-block;
   }
 
@@ -262,15 +260,15 @@ header {
     transform: translateY(0);
   }
 
-  /* staggered reveal */
-  .nav-links li:nth-child(1) a { transition-delay: 0.20s; }
-  .nav-links li:nth-child(2) a { transition-delay: 0.26s; }
-  .nav-links li:nth-child(3) a { transition-delay: 0.32s; }
-  .nav-links li:nth-child(4) a { transition-delay: 0.38s; }
-  .nav-links li:nth-child(5) a { transition-delay: 0.44s; }
-  .nav-links li:nth-child(6) a { transition-delay: 0.50s; }
-  .nav-links li:nth-child(7) a { transition-delay: 0.56s; }
-  .nav-links li:nth-child(8) a { transition-delay: 0.62s; }
+  /* staggered reveal — target the actual list items */
+  .nav-links ul li:nth-child(1) a { transition-delay: 0.20s; }
+  .nav-links ul li:nth-child(2) a { transition-delay: 0.26s; }
+  .nav-links ul li:nth-child(3) a { transition-delay: 0.32s; }
+  .nav-links ul li:nth-child(4) a { transition-delay: 0.38s; }
+  .nav-links ul li:nth-child(5) a { transition-delay: 0.44s; }
+  .nav-links ul li:nth-child(6) a { transition-delay: 0.50s; }
+  .nav-links ul li:nth-child(7) a { transition-delay: 0.56s; }
+  .nav-links ul li:nth-child(8) a { transition-delay: 0.62s; }
 
   /* Big bottom link (still bottom-left, but under list) */
   .nav-links .big-bottom {
@@ -287,7 +285,7 @@ header {
     border-radius: 8px;
     transform: translateY(10px) scale(0.98);
     transition: transform 0.9s var(--reveal-ease),
-                opacity 0.9ss var(--reveal-ease);
+                opacity 0.9s var(--reveal-ease);
     opacity: 0;
   }
 
@@ -301,6 +299,9 @@ header {
 /* =========================
      Hero Section (Landing Banner)
      ========================= */
+/* =========================
+   Hero Section (Landing Banner)
+   ========================= */
 .hero {
   position: relative;
   height: 100vh;
@@ -308,98 +309,110 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow: hidden;
+  overflow: hidden;       /* ensure children don't escape border-radius */
   border-radius: 12px;
 }
 
+/* single, clean .hero-bg */
 .hero-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;               /* shorthand for top:0; right:0; bottom:0; left:0 */
   display: flex;
   flex-direction: row;
-  /* default: side by side */
-  z-index: -2;
+  z-index: 0;             /* background layer */
   border-radius: 12px;
   overflow: hidden;
 }
 
+/* halves */
 .hero-bg-left,
 .hero-bg-right {
-  flex: 1;
+  flex: 1;                /* each side = 50% */
   position: relative;
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;       /* clips images and pseudo-elements to the half's box */
 }
 
-/* .hero-bg-left {
-  background-image: url("../images/hero-image/012.jpg");
-  border: 1px solid var(--color-primary);
+/* images fill the halves */
+.hero-bg-left img,
+.hero-bg-right img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* crop nicely */
+  display: block;
+  z-index: 0;
+  border-radius: 20px;             /* below overlay */
 }
 
-.hero-bg-right {
-  background-image: url("../images/hero-image/008.jpg");
-  border: 1px solid var(--color-primary);
-} */
-
-/* Overlay */
+/* overlay on each half (above image, below hero-content) */
 .hero-bg-left::before,
 .hero-bg-right::before {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0,0,0,0.35); /* adjust opacity as needed */
+  z-index: 1;                   /* sits above images */
+  pointer-events: none;         /* don't block clicks */
+  border-radius: 20px; /* optional: make left overlay follow left rounded corners */
 }
 
+/* right overlay corners (optional fine-tuning) */
+.hero-bg-right::before {
+  border-radius:20px;
+}
+
+/* content (logo) above everything */
 .hero-content {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: 2;  /* above overlays and images */
 }
 
+/* prevent the logo from creating horizontal scroll */
 .hero-logo {
-  width: 100vw;       /* 80% of the viewport width */
-  max-width: 1400px; /* optional cap so it doesnâ€™t grow too huge on big screens */
-  height: auto;      /* keeps aspect ratio */
+  width: min(100vw, 1400px); /* scale but cap at 1400px */
+  height: auto;
+  display: block;
 }
 
-/* Responsive changes */
+/* =========================
+   Mobile / Responsive
+   ========================= */
 @media (max-width: 768px) {
+  :root { --reveal-ease: cubic-bezier(0.16, 1, 0.3, 1); }
+
+  .hero {
+    min-height: 100dvh; /* safer than 100vh on many mobile browsers */
+  }
+
   .hero-bg {
     flex-direction: column;
-    /* stack images top and bottom */
+    height: 100%; /* ensures child halves can be 50% */
   }
 
   .hero-bg-left,
   .hero-bg-right {
     width: 100%;
-    height: 50%;
-    /* take half the height each */
+    height: 50%; /* each takes half */
     border: none;
-    /* remove borders on mobile */
   }
-.hero-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  bottom: auto; /* reset bottom */
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
 
-.hero-logo {
-  width: 90vw;       /* scale nicely on mobile */
-  max-width: 300px;  /* cap it */
-  height: auto;
-}
-  .hero {
-    height: 100vh;
-    /* keep full height */
+  .hero-content {
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    bottom: auto; /* reset bottom */
+  }
+
+  .hero-logo {
+    width: 80vw;       /* scale nicely on mobile */
+    max-width: 300px;  /* cap it */
+    height: auto;
   }
 }
 
@@ -432,120 +445,110 @@ header {
   margin: 0 0.5rem;
 }
 
-/* Responsive */
+/* Responsive - Intro */
 @media (max-width: 768px) {
   .intro-section {
-    padding: 2rem 1rem; /* ðŸ‘ˆ less height (smaller top/bottom padding) */
+    padding: 1rem 1rem; /* less top/bottom padding on mobile */
   }
 
   .intro-text h2 {
-    font-size: 2.2rem; /* smaller text for mobile */
-    line-height: 1.2;
+    font-size: 2rem; /* smaller text for mobile */
+    line-height: 1;
     font-weight: normal;
   }
 
   .inline-image {
     width: 90px;
     height: 50px;
-    display: inline-block; /* keep inline style */
+    display: inline-block;
     margin: 0 0.3rem;
   }
 }
 
-
-
 /* =========================
      Our Story Section 
      ========================= */
+
 /* ========== Chess Grid Layout ========== */
 .story-grid {
   display: grid;
   grid-template-columns: 0.7fr 1fr;
   grid-template-rows: auto auto;
-  gap: 3rem;
-  /* spacing between */
+  gap: 3rem; /* spacing between */
   align-items: start;
 }
 
-.story-block.image-block {
-  grid-column: 1 / -1;
-  /* span across both columns */
+/* support both combined class and single image-block usage so markup doesn't need to change */
+.story-block.image-block,
+.image-block,
+.image-block.story-block {
+  grid-column: 1 / -1; /* span across both columns */
   width: 100%;
   margin: 0;
   padding: 0;
   justify-self: start;
-}
-
-.story-image {
-  width: 100%;
-  height: 420px;
-  /* control row height */
-  overflow: hidden;
-  /* clip the image so it fills */
-}
-
-/* Styling per quadrant */
-.title-block {
-  /* background-color: #1f1f1f; */
-  color: rgb(0, 0, 0);
-}
-
-.text-block {
-  background-color: var(--color-bg);
-  margin-bottom: 1rem;
-}
-
-.image-block {
-  /* background-color: #1f1f1f;  */
   color: white;
-  padding: 0;
-  margin: 0;
   display: flex;
 }
 
+/* image container */
+.story-image {
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+}
 
+.story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fill the row */
+  display: block;
+}
+
+/* Styling per quadrant / title area */
+.title-block,
+.story-title {
+  /* kept your visual choice: dark title color */
+  color: #1f1f1f;
+}
+
+/* Title block specifics */
+.story-title {
+  font-family: "Melodrame", serif;
+  font-size: 4rem;
+  color: var(--color-primary);
+  text-align: left;
+  white-space: nowrap;
+  margin: 0; /* normalize margins */
+}
+
+.story-title h2 {
+  font-weight: 400;
+  font-size: 4rem;
+  margin: 0;
+}
+
+/* Right column: Text & container */
 .story-section {
   background-color: var(--color-bg);
   padding: 6rem 5rem;
 }
 
-/* Container to hold title + text */
 .story-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  max-width: none;
-  /* remove the 1200px limit */
+  max-width: none; /* remove the 1200px limit by design */
   margin: 0;
-  /* remove auto-centering */
   padding: 0;
-  /* optional */
-  gap: 0.5rem;
-  /* tighter spacing */
+  gap: 0.5rem; /* tighter spacing */
 }
 
-/* Left column: Heading only */
-.story-title {
-  font-family: "Melodrame", serif;
-  /* font-style: italic; */
-  font-size: 5rem;
-  text-align: left;
-  /* margin-left: 5rem; */
-  white-space: nowrap;
-}
-
-.story-title h2 {
-  color: #1f1f1f;
-  font-weight: 400;
-  font-size: 6rem;
-}
-
-/* Right column: Text & image */
+/* paragraph/text styles */
 .story-text {
   flex: 1;
   max-width: 700px;
-  /* font-family: "Helvetica Neue", sans-serif; */
   color: var(--color-primary);
   font-size: 22px;
   display: block;
@@ -554,26 +557,22 @@ header {
 .story-text p {
   width: 100%;
   text-align: left;
-  /* line-height: 1.6;   */
+  margin: 0 0 1rem 0; /* sensible default spacing between paragraphs */
+  /* line-height can be re-enabled if desired */
 }
 
-.Regular {
-  font-family: "Tomato thin", Helvetica;
+/* support both .Regular (existing markup) and .regular (conventional lowercase) */
+.Regular,
+.regular {
+  font-family: "Tomato thin", Helvetica, Arial, sans-serif;
 }
 
-.story-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* fill the row */
-  display: block;
-}
-
-/* Responsive for smaller screens */
+/* =========================
+   Responsive for smaller screens
+   ========================= */
 @media (max-width: 768px) {
   .story-section {
-    padding: 2rem 1rem;
-    /* reduce outer space */
+    padding: 2rem 1rem; /* reduce outer space */
   }
 
   .story-grid {
@@ -581,31 +580,31 @@ header {
     grid-template-rows: auto;
     margin: 0 !important;
     padding: 0 !important;
-    gap: 0.1rem;
-    /* reduce gap between title, text, and image */
+    gap: 0.1rem; /* tighter gap */
   }
 
   .story-title {
+    color: var(--color-primary);
     font-size: 3rem;
     text-align: left;
+    padding: 0 0.5rem;
     margin-bottom: 0.5rem;
-    /* smaller space below title */
+    white-space: normal; /* allow wrapping on narrow screens */
   }
 
   .story-text {
-    font-size: 1.3rem;
-    padding: 0 0.5rem;
+    font-size: 1.2rem;
     margin-top: 0;
-    /* remove extra margin above text */
+    padding: 0 0.5rem;
   }
 
   .story-text p {
     margin: 0.5rem 0;
-    /* tighter spacing between paragraphs */
   }
 
   .story-image img {
     width: 100%;
+    padding: 0 0.5rem;
     height: auto;
   }
 }
@@ -682,7 +681,7 @@ header {
 .menu-text {
   /* padding: 0.75rem 1rem; */
   padding-top: 8px;
-  font-family: "Tomato Light", sans-serif;
+  font-family: "Tomato light", sans-serif;
   font-size: 1.3rem;
   color: var(--color-primary);
   background-color: var(--color-bg);
@@ -731,6 +730,7 @@ header {
   .menu-title {
     display: block;
     text-align: left;
+    font-size: 3rem;
     /* center title */
     margin: 0 auto 0 1rem;
     /* remove left offset, add bottom gap */
@@ -819,7 +819,8 @@ header {
 }
 
 .gallery-title {
-  margin-left: 5rem;
+  margin-left: 4rem;
+  color: var(--color-primary);
 }
 
 .view-more {
@@ -836,7 +837,7 @@ header {
   color: var(--color-primary);
   font-family: "Tomato light", serif;
   /* font-style: italic; */
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-decoration: none;
   transition: color 0.3s;
   border-bottom: 1px solid var(--color-primary);
@@ -871,7 +872,6 @@ header {
   .gallery-wrapper {
     margin-left: 1rem;
     margin-right: 1rem;
-    /* reduce space to edges */
   }
 
   .gallery-track img {
@@ -884,6 +884,7 @@ header {
     display: block;
     text-align: left;
     /* center the title */
+    font-size: 3rem;
     margin: 0 auto 0 1rem;
     /* center + reduce bottom margin */
   }
@@ -908,8 +909,8 @@ header {
 #contact {
   background: var(--color-bg);
   color: #fff;
-  font-family: "Tomato Light", Helvetica, sans-serif;
-  padding: 5rem 3rem;
+  font-family: "Tomato light", Helvetica, sans-serif;
+  padding: 5rem 5rem;
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -925,7 +926,8 @@ header {
 
 .contact-title {
   font-family: "Melodrame", serif;
-  font-size: 5rem;
+  font-size: 4rem;
+  color: var(--color-primary);
   margin: 0;
   font-weight: normal;
 }
@@ -1035,6 +1037,7 @@ header {
 
   .contact-title {
     font-size: 3rem;
+    
   }
 
   .info-row {
@@ -1047,6 +1050,6 @@ header {
   }
   
     #contact {
-    padding: 6rem 1rem 2rem 1rem; /* smaller spacing for mobile */
+    padding: 6rem 1.5rem 2rem 1.5rem; /* smaller spacing for mobile */
   }
 }

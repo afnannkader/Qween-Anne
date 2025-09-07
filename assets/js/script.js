@@ -238,60 +238,109 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-gsap.registerPlugin(ScrollTrigger);
 
-const paragraph = document.getElementById('para');
-const rawHTML = paragraph.innerHTML; // preserves <br>
-paragraph.innerHTML = '';
+function animateSentences(container) {
+  const rawHTML = container.innerHTML.trim();
+  container.innerHTML = "";
 
-const tempDiv = document.createElement('div');
-tempDiv.innerHTML = rawHTML;
+  // Split by <br> so intro breaks correctly
+  const parts = rawHTML.split(/<br\s*\/?>/i);
 
-const paragraphs = tempDiv.querySelectorAll('p');
+  parts.forEach((part, i) => {
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = part.trim();
 
-paragraphs.forEach((p, i) => {
-  const styleClass = p.className; // "Regular", "Light", etc.
-  const text = p.innerHTML;
+    const nodes = Array.from(tempDiv.childNodes);
 
-  const sentences = text.match(/[^.!?]+[.!?]+/g); // split into sentences
-  if (sentences) {
-    sentences.forEach((sentence) => {
-      const span = document.createElement('span');
-      span.className = `sentence ${styleClass}`; // preserve font class
-      span.innerHTML = sentence + ' ';
-      paragraph.appendChild(span);
-
-      gsap.to(span, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        delay: i * 0.2,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: span,
-          start: 'top 90%',
-          toggleActions: 'play none none none'
-        }
-      });
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: container,
+        start: "top 90%",
+        toggleActions: "play none none none",
+      },
     });
-  }
 
-  // Add <br><br> after each paragraph
-  if (i < paragraphs.length - 1) {
-    paragraph.appendChild(document.createElement('br'));
-    paragraph.appendChild(document.createElement('br'));
-  }
+    nodes.forEach((node, j) => {
+      if (node.nodeType === 3) {
+        // ✅ FIX: trim text so it's not just whitespace
+        const cleanText = node.textContent.trim();
+        if (!cleanText) return;
+
+        const sentences =
+          cleanText.match(/[^.!?]+[.!?]*\s*/g) || [cleanText];
+
+        sentences.forEach((sentence, k) => {
+          const span = document.createElement("span");
+          span.className = "sentence";
+          span.innerHTML = sentence + " ";
+          container.appendChild(span);
+
+          gsap.set(span, { opacity: 0, y: 20 });
+
+          timeline.to(
+            span,
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              ease: "power2.out",
+            },
+            j * 0.4 + k * 0.3 // stagger
+          );
+        });
+      } else if (node.nodeType === 1 && node.tagName === "IMG") {
+        // Animate <img>
+        container.appendChild(node);
+
+        gsap.set(node, { opacity: 0, y: 30 });
+        timeline.to(
+          node,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          j * 0.4
+        );
+      }
+    });
+
+    if (i < parts.length - 1) {
+      container.appendChild(document.createElement("br"));
+    }
+  });
+}
+
+// Add a new timeline to animate the intro-text container itself
+const introContainerTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".intro-text h2",
+    start: "top 90%",
+    toggleActions: "play none none none",
+  },
 });
 
+// Set initial state for the entire h2 and then animate its opacity
+gsap.set(".intro-text h2", { opacity: 0 });
+introContainerTimeline.to(".intro-text h2", { opacity: 1, duration: 1.5, ease: "power2.out" });
+
+// Apply to intro
+const introText = document.querySelector("#intro h2");
+if (introText) animateSentences(introText);
+
+// Apply to story
+const storyPara = document.getElementById("para");
+if (storyPara) {
+  const paragraphs = storyPara.querySelectorAll("p");
+  paragraphs.forEach((p) => animateSentences(p));
+}
 
 ScrollSmoother.create({
   smooth: 3, // how long (in seconds) it takes to "catch up" to the native scroll position
   effects: true, // looks for data-speed and data-lag attributes on elements
   smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
 });
-
-// Optional: Add scroll-to-top button logic (if needed later)
-// Optional: Add sticky nav behavior or dynamic scroll effects here
 
 // Smooth scroll for anchor links using GSAP ScrollSmoother if available
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -316,7 +365,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
-
 gsap.registerPlugin(ScrollTrigger);
 
 // Infinite scroll effect
@@ -429,7 +477,7 @@ document.getElementById("viewMoreBtn").addEventListener("click", function (e) {
     let message = document.getElementById("message").value;
 
     // WhatsApp number (no spaces, include country code)
-    let phone = "919744803767"; 
+    let phone = "966 50 259 9777"; 
 
     // Format the message
   let whatsappMessage = `Hey there! You’ve got a new message %0A%0A I’m *${name}*%0A My Email: ${email}%0A Message:%0A "${message}"%0A%0A Can’t wait to hear back from you!`;
@@ -438,6 +486,7 @@ document.getElementById("viewMoreBtn").addEventListener("click", function (e) {
     let whatsappURL = `https://wa.me/${phone}?text=${whatsappMessage}`;
     window.open(whatsappURL, "_blank");
   });
+
 
 
 async function loadHero() {

@@ -385,7 +385,7 @@ header {
   :root { --reveal-ease: cubic-bezier(0.16, 1, 0.3, 1); }
 
   .hero {
-    min-height: 100dvh; /* safer than 100vh on many mobile browsers */
+    min-height: 100vh; /* safer than 100vh on many mobile browsers */
   }
 
   .hero-bg {
@@ -602,6 +602,11 @@ header {
     margin: 0.5rem 0;
   }
 
+  .story-image {
+    height: auto; /* allow height to adjust */
+    max-height: 300px; /* optional: cap max height */
+  }
+
   .story-image img {
     width: 100%;
     padding: 0 0.5rem;
@@ -639,7 +644,7 @@ header {
 }
 
 #menu {
-  padding-top: 6rem;
+  padding-top: 2rem;
 }
 
 .menu-title {

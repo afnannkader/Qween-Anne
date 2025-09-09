@@ -498,15 +498,15 @@ console.log("Hero data:", hero);
     const leftImage = hero.HeroImageLeft?.url;
     const rightImage = hero.HeroImageRight?.url;
 
-    if (leftImage) {
-      document.querySelector(".hero-bg-left").style.backgroundImage =
-        `url("${leftImage}")`;
-    }
+if (leftImage) {
+  document.querySelector(".hero-bg-left").innerHTML =
+    `<img src="${leftImage}" alt="Left Hero">`;
+}
 
-    if (rightImage) {
-      document.querySelector(".hero-bg-right").style.backgroundImage =
-        `url("${rightImage}")`;
-    }
+if (rightImage) {
+  document.querySelector(".hero-bg-right").innerHTML =
+    `<img src="${rightImage}" alt="Right Hero">`;
+}
   } catch (error) {
     console.error("Error loading hero images:", error);
   }
@@ -643,7 +643,7 @@ function createMenuItem(item) {
     <div class="menu-item">
       <div class="menu-text"><span>${title}</span></div>
       <img src="${imageUrl}" alt="${title}" />
-      <div class="menu-text"><span class="price">﷼ ${price}</span></div>
+      <div class="menu-text"><span class="price">${price} SAR</span></div>
     </div>
   `;
 }

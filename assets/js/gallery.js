@@ -124,23 +124,46 @@ const Gallery = (() => {
   };
 
   // ✅ Fetch images from Strapi
-  const fetchImages = async () => {
-    try {
-      const res = await fetch(`${API_URL}${ENDPOINT}`);
-      const data = await res.json();
-      console.log("Fetched Strapi data:", data.data);
+  // const fetchImages = async () => {
+  //   try {
+  //     const res = await fetch(`${API_URL}${ENDPOINT}`);
+  //     const data = await res.json();
+  //     console.log("Fetched Strapi data:", data.data);
 
-      images = data.data.map((item, i) => {
-        const file = item.Image;
-        return {
-          src: file?.url ? `${API_URL}${file.url}` : "./assets/images/placeholder.png",
-          alt: file?.name || `Gallery Image ${i + 1}`,
-        };
-      });
-    } catch (err) {
-      console.error("Error fetching Strapi images:", err);
-    }
-  };
+  //     images = data.data.map((item, i) => {
+  //       const file = item.Image;
+  //       return {
+  //         src: file?.url ? `${API_URL}${file.url}` : "./assets/images/placeholder.png",
+  //         alt: file?.name || `Gallery Image ${i + 1}`,
+  //       };
+  //     });
+  //   } catch (err) {
+  //     console.error("Error fetching Strapi images:", err);
+  //   }
+  // };
+
+  const fetchImages = async () => {
+  try {
+    const res = await fetch(`${API_URL}${ENDPOINT}`);
+    const data = await res.json();
+    console.log("Fetched Strapi data:", data.data);
+
+    images = data.data.map((item, i) => {
+      const file = item.Image;
+      return {
+        // ✅ Use Cloudinary URL directly
+        src: file?.url || "./assets/images/placeholder.png",
+        // Or pick a format if you want smaller previews:
+        // src: file?.formats?.medium?.url || file?.url || "./assets/images/placeholder.png",
+
+        alt: file?.name || `Gallery Image ${i + 1}`,
+      };
+    });
+  } catch (err) {
+    console.error("Error fetching Strapi images:", err);
+  }
+};
+
 
   const init = async () => {
     minimap = document.getElementById("minimap");
